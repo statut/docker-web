@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  webapp:
+    build: .
+    ports:
+      - "8080:8080"
+      - "8000:8000"
+    environment:
+      CATALINA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000"
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
